@@ -31,10 +31,7 @@ Run all cells sequentially (Runtime → Run all) to perform dataset preprocessin
 Training/validation accuracy and loss graphs are displayed inline. Confusion matrix, performance metrics, and final classification results are generated automatically. Trained model weights and plots are saved to the designated /models and /results directories. 
 
  Description of dataset: The data utilized in the study was acquired from the freely accessible Kaggle Autism Image Data Repository: https://www.kaggle.com/datasets/cihan063/autism-image-data
- It contains facial images of autistic and non-autistic individuals in the age range 2–14 years. Before preprocessing, this dataset was divided in the following way:
-AUTISTIC (1040 + 50 + 150 = 1240)
-NON-AUTISTIC (1040 + 50 +	150 = 1240)
-TOTAL (2080 + 100	+ 300 = 2480) 
+ It contains facial images of autistic and non-autistic individuals in the age range 2–14 years. Before preprocessing, this dataset was divided in the following way AUTISTIC with 1240 images and NON-AUTISTIC with 1240 images. Total 2480 images.
 
 Output screenshots or result summary: 
 The proposed dual-input ensemble model, for which EfficientNetB0 and DenseNet121 served as the base, proved to be very consistent in its performance and reliable for classifying face images of both ASD and non-ASD subjects. During training over 45 epochs, it reached a maximum training accuracy of 82.50%, while the maximum validation accuracy attained was 89.58% at epoch 19, indicating good generalization of the model with controlled overfitting. Confirmation of stability and robustness in the learning process is further provided by higher validation accuracy compared to training accuracy. Later, the top three models were ensembled to generate a final consensus prediction, keeping in view the complementarities in feature representations extracted from both networks. This translates, after postprocessing through ensembling, into an overall classification accuracy of 78.67%, ROC-AUC of 0.8726, PR-AUC of 0.8853, and F1-score of 0.80 on the held-out test set. This constitutes 128 true positives and 108 true negatives, representing a sensitivity of 85.33% and a specificity of 72.00%. These confirm that the model has good reliability in pinpointing ASD-related facial features with adequate false-positive control.
